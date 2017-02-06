@@ -18,5 +18,11 @@ class WeeverCLI(cmd.Cmd):
         args = parser.parse_args(line.split())
         bot.drive(args.percentage, args.duration)
 
+    def do_brake(self, line):
+        parser = argparse.ArgumentParser()
+        parser.add_argument('-d','--duration', type=int)
+        args = parser.parse_args(line.split())
+        bot.brake(args.duration)
+
 if __name__ == '__main__':
     WeeverCLI().cmdloop()
